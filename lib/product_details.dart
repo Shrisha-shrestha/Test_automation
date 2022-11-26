@@ -11,13 +11,10 @@ class details extends StatelessWidget {
     return Scaffold(
       backgroundColor: item.color,
       appBar: AppBar(backgroundColor: item.color,elevation: 0.0,
-        leading: IconButton(
-          icon:Icon(Icons.arrow_back_outlined),
-          color: Colors.white,
-          onPressed:(){ Navigator.pop(context);},
-        ),
+        leading: BackButton(
+          color: Colors.white,),
         actions: <Widget>[
-          IconButton(icon:Icon(Icons.search,color: Colors.white,),onPressed: (){},),
+          IconButton(icon:Icon(Icons.shopping_bag_outlined,color: Colors.white,),onPressed: (){},),
           SizedBox(width: 25.0,),
           IconButton(icon:SvgPicture.asset('assets/icons/cart.svg',
             color: Colors.white,),onPressed: (){},),
@@ -29,15 +26,16 @@ class details extends StatelessWidget {
         width:  MediaQuery.of(context).size.width,
         child: Stack(
           children: <Widget>[
+
             Container(
-              margin: EdgeInsets.only(top: 220.0),
+              margin: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.28),
               height:  MediaQuery.of(context).size.height*0.7,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(topRight: Radius.circular(25.0),topLeft: Radius.circular(25.0)),
                 color: Colors.white,
               ),
               child: Padding(
-                padding: const EdgeInsets.only(left: 25.0,right: 25.0,top: 90.0),
+                padding: const EdgeInsets.only(left: 25.0,right: 25.0,top: 60.0),
                 child: Column(
                   children: <Widget>[
                     Row(
@@ -69,11 +67,11 @@ class details extends StatelessWidget {
                       textAlign: TextAlign.justify,
                       style: TextStyle(color: Colors.grey),),
                     ),
-
+                    SizedBox(height: 12,),
                     count(),
-
+                    SizedBox(height: 22,),
                     Padding(
-                      padding: const EdgeInsets.only(top: 15.0),
+                      padding: const EdgeInsets.only(top: 10.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -92,7 +90,7 @@ class details extends StatelessWidget {
                           TextButton(onPressed: (){},
                               style: TextButton.styleFrom(
                                 backgroundColor: item.color,
-                                minimumSize: Size(220.0, 40.0),
+                                minimumSize: Size(MediaQuery.of(context).size.width*0.6, 40.0),
                                   shape: StadiumBorder(),
                               ),
                               child: Text('BUY NOW',style: TextStyle(
@@ -103,6 +101,20 @@ class details extends StatelessWidget {
                     )
 
                   ],
+                ),
+              ),
+            ),
+            Positioned(
+              top: MediaQuery.of(context).size.height*0.05,
+              right:MediaQuery.of(context).size.width*0.01,
+              child: Container(
+                height: 265.0,
+                child: Hero(
+                  tag: "btn${item.id}",
+                  child: Image.asset(
+                    item.image,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ),
@@ -119,6 +131,7 @@ class details extends StatelessWidget {
                         fontSize: 38.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
+                        SizedBox(height: MediaQuery.of(context).size.height*0.1,),
                         Row(
                 children: <Widget>[
                   Column(
@@ -135,18 +148,8 @@ class details extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
                     ],
-                  ),
-                  SizedBox(width:55.0),
-                  //Image.asset(item.image),
-                  Expanded(
-                    child: Hero(
-                      tag: "btn${item.id}",
-                      child: Image.asset(
-                        item.image,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  )
+                  ),                  //Image.asset(item.image),
+
                 ],
               ),
             ],
@@ -187,7 +190,7 @@ class _colorpickerState extends State<colorpicker> {
                 });
               },
               child: Container(
-                margin: EdgeInsets.only(top: 5.0,right: 5.0),
+                margin: EdgeInsets.only(top: 2.0,right: 5.0),
                 padding: EdgeInsets.all(3.0),
                 height: 24,
                 width: 24,
@@ -226,7 +229,7 @@ class _countState extends State<count> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Row(
           children: [
@@ -236,7 +239,7 @@ class _countState extends State<count> {
             style: OutlinedButton.styleFrom(minimumSize: Size(10.0,30.0 )),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Text('${counter}',style: TextStyle(fontSize: 25.0),),
             ),
             OutlinedButton(onPressed: (){setState((){if (counter!= 0) counter--;});},
@@ -244,7 +247,6 @@ class _countState extends State<count> {
                 child:Icon(Icons.remove)),
           ],
         ),
-
         GestureDetector(
           onTap: (){setState(() {
             fav=!fav;

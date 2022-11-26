@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1077295858265",
+    "project_id": "ecom-ccdbb",
+    "storage_bucket": "ecom-ccdbb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077295858265:android:c4bccf4ffc9b84ba006748",
+        "android_client_info": {
+          "package_name": "com.example.untitled"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077295858265-grbgihta1qjk7kla5k5f1fickn5e3qf7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3RboNuU5cgQFILVmOPzVkZPjmoKJeDKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077295858265-grbgihta1qjk7kla5k5f1fickn5e3qf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
