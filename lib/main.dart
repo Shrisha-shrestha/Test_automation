@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/sign.dart';
-import '../Homescreen.dart';
+import 'home/Homescreen.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+import 'model/db.dart';
 // @dart=2.9
 
 void main() async {

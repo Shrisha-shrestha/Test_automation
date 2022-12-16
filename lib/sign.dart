@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shop_app/db.dart';
-import '../Register.dart';
-import '../signin.dart';
+import 'package:shop_app/model/db.dart';
+import 'home/register.dart';
+import 'home/signin.dart';
 
 class authenticate  extends StatefulWidget {
   @override
@@ -56,7 +56,7 @@ class AuthService{
       UserCredential result =await _auth.createUserWithEmailAndPassword(email:Email, password: Password);
       User? coming_user =result.user;
 
-      await  DatabaseSevice(uid:coming_user!.uid).updateUser('Default username', 'example@gmail');
+      await  DatabaseService(uid:coming_user!.uid).updateusername('Default username');
       return _userFromfireuser(coming_user!);
 
     }
@@ -93,7 +93,4 @@ class AuthService{
   }
 }
 
-class theUser{
-  final String? uid;
-  theUser({ this.uid});
-}
+
