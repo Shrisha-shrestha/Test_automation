@@ -30,6 +30,7 @@ class _authenticateState extends State<authenticate> {
 
 class AuthService{
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  
   theUser? _userFromfireuser(User  user){
     return user != null ? theUser(uid: user.uid):null;
   }

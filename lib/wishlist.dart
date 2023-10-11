@@ -25,12 +25,12 @@ class _wishState extends State<wish> {
         actions: <Widget>[
           IconButton(icon:Icon(Icons.shopping_cart_checkout,color: Colors.black54,),
             onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => cart(item: widget.item, counter: widget.counter, total: widget.total)
-                ),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //       builder: (context) => cart(item: widget.item, counter: widget.counter, total: widget.total)
+              //   ),
+              // );
             },),
           SizedBox(width: 25.0,),
         ],
@@ -46,7 +46,7 @@ class _wishState extends State<wish> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                          color: wish.color, // Your desired background color
+                          // color: wish.color, // Your desired background color
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 20),
